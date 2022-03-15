@@ -1,6 +1,6 @@
-MIT License
+# MIT License
 
-Copyright (c) 2022 Pavlo Marenyuk
+## Copyright (c) 2022 Pavlo Marenyuk <pavlomr@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

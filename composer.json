@@ -1,0 +1,25 @@
+{
+    "name": "pavlomr/stream-wrapper",
+    "description": "Stream wrapper for DTO",
+    "type": "library",
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "psr/http-message": "^1.0",
+        "guzzlehttp/psr7": "^2.1",
+        "pavlomr/dto-interface": "^0.1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "pavlomr\\Wrapper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pavlo Marenyuk",
+            "email": "pavlomr@gmail.com"
+        }
+    ],
+    "minimum-stability": "RC"
+}
