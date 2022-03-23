@@ -9,19 +9,12 @@ class JSONWrapper implements StreamInterface
 {
     use StreamDecoratorTrait;
 
-    /**
-     * @param \Psr\Http\Message\StreamInterface $stream
-     * @param \pavlomr\DTO\DTOInterface         $DTO
-     *
-     * @throws \JsonException
-     */
-    public function __construct(StreamInterface $stream, DTOInterface $DTO)
+    public function writeDto($DTO):int
     {
-        $this->stream = $stream;
-        $this->write(json_encode($DTO->asDto(), JSON_THROW_ON_ERROR));
+        return$this->write(json_encode($DTO, JSON_THROW_ON_ERROR));
     }
 
-    public function contentType(): string
+    public function getContentType(): string
     {
         return 'application/json';
     }
