@@ -1,2 +1,2 @@
-# stream-wrapper
-Writes DTO to stream
+# response wrapper
+Attaches body to HTTP response
