@@ -3,16 +3,17 @@
 namespace pavlomr\Wrapper;
 
 use GuzzleHttp\Psr7\BufferStream;
-use JsonSerializable;
 use Psr\Http\Message\ResponseInterface;
 
-class WrapJSON extends Stream
+class JSONStream extends Stream
 {
 
     /**
+     * @param scalar|array|object|\JsonSerializable
+     *
      * @throws \JsonException
      */
-    public function __construct(JsonSerializable $buffer)
+    public function __construct($buffer)
     {
         $stream = new BufferStream();
         $stream->write(json_encode($buffer, JSON_THROW_ON_ERROR));

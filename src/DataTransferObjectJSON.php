@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * @deprecated @see \pavlomr\Wrapper\WrapJSON
+ * @deprecated @see \pavlomr\Wrapper\JSONStream
  */
 class DataTransferObjectJSON extends Stream
 {
