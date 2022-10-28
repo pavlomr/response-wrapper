@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<psalm
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        errorLevel="6"
+        xmlns="https://getpsalm.org/schema/config"
+        xsi:schemaLocation="https://getpsalm.org/schema/config https://psalm.dev/schema/config"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+    <forbiddenFunctions>
+        <function name="empty"/>
+    </forbiddenFunctions>
+    <issueHandlers>
+        <ForbiddenCode>
+            <errorLevel type="error"/>
+        </ForbiddenCode>
+        <InvalidDocblock>
+            <errorLevel type="error"/>
+        </InvalidDocblock>
+        <PropertyNotSetInConstructor>
+            <errorLevel type="suppress">
+                <file name="src/*.php" />
+            </errorLevel>
+        </PropertyNotSetInConstructor>
+    </issueHandlers>
+</psalm>

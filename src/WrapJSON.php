@@ -3,23 +3,19 @@
 namespace pavlomr\Wrapper;
 
 use GuzzleHttp\Psr7\BufferStream;
-use pavlomr\DataTransfer\DataTransferObjectInterface;
+use JsonSerializable;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
 
-/**
- * @deprecated @see \pavlomr\Wrapper\WrapJSON
- */
-class DataTransferObjectJSON extends Stream
+class WrapJSON extends Stream
 {
 
     /**
      * @throws \JsonException
      */
-    public function __construct(DataTransferObjectInterface $buffer)
+    public function __construct(JsonSerializable $buffer)
     {
         $stream = new BufferStream();
-        $stream->write(json_encode($buffer->asObject(), JSON_THROW_ON_ERROR));
+        $stream->write(json_encode($buffer, JSON_THROW_ON_ERROR));
         parent::__construct($stream);
     }
 
