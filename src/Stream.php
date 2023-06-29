@@ -8,14 +8,8 @@ use Psr\Http\Message\StreamInterface;
 class Stream implements ResponseWrapperInterface
 {
 
-    /**
-     * @var \Psr\Http\Message\StreamInterface
-     */
-    private StreamInterface $body;
-
-    public function __construct(StreamInterface $buffer)
+    public function __construct(readonly private StreamInterface $buffer)
     {
-        $this->body = $buffer;
     }
 
     /**
@@ -24,7 +18,7 @@ class Stream implements ResponseWrapperInterface
     public function wrap(ResponseInterface $response): ResponseInterface
     {
         return $response
-            ->withBody($this->body)
+            ->withBody($this->buffer)
         ;
     }
 }

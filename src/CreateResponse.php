@@ -7,15 +7,13 @@ use Psr\Http\Message\ResponseInterface;
 
 class CreateResponse implements ResponseWrapperInterface
 {
-    private ResponseFactoryInterface $factory;
 
-    public function __construct(ResponseFactoryInterface $buffer)
+    public function __construct(private readonly ResponseFactoryInterface $buffer)
     {
-        $this->factory = $buffer;
     }
 
     public function wrap(ResponseInterface $response): ResponseInterface
     {
-        return $this->factory->createResponse();
+        return $this->buffer->createResponse();
     }
 }
