@@ -9,7 +9,7 @@ class JSONStream extends Stream
 {
 
     /**
-     * @param scalar|array|object|\JsonSerializable
+     * @param scalar|array|object|\JsonSerializable $buffer
      *
      * @throws \JsonException
      */
@@ -27,7 +27,7 @@ class JSONStream extends Stream
     {
         return parent
             ::wrap($response)
-            ->withHeader('content-type', 'application/json')
+            ->withHeader('Content-Type', 'application/json')
         ;
     }
 }
