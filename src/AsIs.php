@@ -4,10 +4,9 @@ namespace pavlomr\Wrapper;
 
 use Psr\Http\Message\ResponseInterface;
 
-class AsIs implements ResponseWrapperInterface
+readonly class AsIs implements ResponseWrapperInterface
 {
-
-    public function __construct(private readonly ResponseInterface $buffer)
+    public function __construct(private ResponseInterface $buffer)
     {
     }
 

@@ -2,27 +2,22 @@
 
 namespace pavlomr\Wrapper;
 
-use GuzzleHttp\Psr7\BufferStream;
+use JsonSerializable;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
+use stdClass;
 
-class JSONStream extends Stream
+readonly class JSONStream extends Stream
 {
-
     /**
-     * @param scalar|array|object|\JsonSerializable $buffer
-     *
      * @throws \JsonException
      */
-    public function __construct($buffer)
+    public function __construct(float|array|bool|int|string|stdClass|JsonSerializable|null $buffer, StreamInterface $stream)
     {
-        $stream = new BufferStream();
         $stream->write(json_encode($buffer, JSON_THROW_ON_ERROR));
         parent::__construct($stream);
     }
 
-    /**
-     * @inheritDoc
-     */
     public function wrap(ResponseInterface $response): ResponseInterface
     {
         return parent

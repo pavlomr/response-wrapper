@@ -4,6 +4,8 @@
         errorLevel="6"
         xmlns="https://getpsalm.org/schema/config"
         xsi:schemaLocation="https://getpsalm.org/schema/config https://psalm.dev/schema/config"
+        findUnusedCode="true"
+        findUnusedBaselineEntry="true"
 >
     <projectFiles>
         <directory name="src"/>
@@ -22,9 +24,14 @@
             <errorLevel type="error"/>
         </InvalidDocblock>
         <PropertyNotSetInConstructor>
-            <errorLevel type="suppress">
-                <file name="src/*.php" />
+            <errorLevel type="info">
+                <file name="src/*.php"/>
             </errorLevel>
         </PropertyNotSetInConstructor>
+        <UnusedClass>
+            <errorLevel type="suppress">
+                <file name="src/*.php"/>
+            </errorLevel>
+        </UnusedClass>
     </issueHandlers>
 </psalm>

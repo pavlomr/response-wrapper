@@ -3,11 +3,12 @@
 namespace pavlomr\Wrapper;
 
 use pavlomr\Normalizer\NormalizerInterface;
+use Psr\Http\Message\StreamInterface;
 
-class Normalized extends JSONStream
+readonly class Normalized extends JSONStream
 {
-    public function __construct($buffer, private readonly NormalizerInterface $normalizer)
+    public function __construct(mixed $buffer, StreamInterface $stream, NormalizerInterface $normalizer)
     {
-        parent::__construct($this->normalizer->normalize($buffer));
+        parent::__construct($normalizer->normalize($buffer), $stream);
     }
 }
