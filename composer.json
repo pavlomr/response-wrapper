@@ -3,6 +3,7 @@
   "description": "Add DTO body and headers to HTTP response",
   "type": "library",
   "license": "MIT",
+  "abandoned": "pavlomr/http-response-hydrator",
   "authors": [
     {
       "name": "Pavlo Marenyuk",
